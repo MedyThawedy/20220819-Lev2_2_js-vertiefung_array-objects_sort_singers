@@ -29,10 +29,12 @@ let index = 0;
 let sortedSingers = {};
 
 singers.forEach((e) => {
+
+    console.log(index + ': ' + 'Object { name:' + e.name + ', country: ' + e.country + ', genre: ' + e.genre + 'period_active: { start: ' + e.period_active.start + ', end: ' + e.period_active.end + ' } ');
+    sortedSingers[index] = { name: e.name, country: e.country, genre: e.genre, period_active: { start: e.period_active.start, end: e.period_active.end } };
     index = index + 1;
-    console.log(index + ': ' + 'Object { name:' + e.name + ', country: ' + e.country + ', genre: ' + e.genre + 'period_active: ' + e.period_active);
-    sortedSingers[index] = { name: e.name, country: e.country, genre: e.genre, period_active: e.period_active };
 });
+console.log('Length = ' + singers.length);
 
 
 function fnShowResult() {
@@ -40,8 +42,12 @@ function fnShowResult() {
     document.write('<h2> Sorted object = </h2>');
     document.write('<br>');
     for (let i = 0; i < singers.length; i++) {
-        document.write(i + ': ' + 'Object { name:' + singers[i].name + ', country: ' + singers[i].country + ', genre: ' + singers[i].genre + 'period_active: ' + singers[i].period_active + '<br>');
+        document.write(i + ': ' + 'Object { name:' + singers[i].name + ', country: ' + singers[i].country + ', genre: ' + singers[i].genre + 'period_active: { start: ' + singers[i].period_active.start + ', end: ' + singers[i].period_active.end + ' } ' + '<br>');
+        if (i === (singers.length - 1)) {
+            document.write('Length = ' + singers.length);
+        }
     }
+
 }
 
 
